@@ -1,0 +1,19 @@
+extends layout
+
+block content
+   h1= category.name + ' Details'
+
+   p= category.description
+
+   each product in products
+      li
+            a(href=product.url) #{product.name}
+   else
+      li No product in category
+
+   hr
+   p
+      a(href=category.url+'/update') Update Category
+   p
+      a(href=category.url+'/delete') Delete Category
+   

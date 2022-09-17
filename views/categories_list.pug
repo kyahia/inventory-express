@@ -1,0 +1,15 @@
+extends layout
+
+block content
+   h1=title
+   ul
+      each category in categories
+         dl
+            dt
+               a(href=category.url) #{category.name}
+            dd= category.description
+      else
+         li No categories
+   hr
+   p
+      a(href='/category/create') Create a new category

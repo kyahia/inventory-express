@@ -1,0 +1,14 @@
+extends layout
+
+block content
+   h1=title
+   ul
+      each product in products
+         li
+            a(href=product.url) #{product.name}
+            | (#{product.category.name})
+      else
+         li No product in store
+   hr
+   p
+      a(href='/product/create') Create a new product

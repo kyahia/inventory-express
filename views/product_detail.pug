@@ -1,0 +1,17 @@
+extends layout
+
+block content
+   h1= product.name + ' Details'
+   h2 Category : #{product.category.name}
+   - const stockStatus = product.stock == 0 ? 'no-stock' : 'in-stock'
+   h6(class=stockStatus) Stock : #{product.stock}
+   p Price : #{product.price} dzd
+   hr
+   p= product.description
+
+   hr
+   p
+      a(href=product.url+'/update') Update Product
+   p
+      a(href=product.url+'/delete') Delete Product
+   

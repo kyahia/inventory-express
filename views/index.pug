@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1.text-center
+    img(src="/images/welcome.webp")
+
+  if results
+
+    section.text-center.my-5    
+      h2.mt-3.mb-5 Explore our catalog of 
+        a.btn.btn-warning(href='/product')= results.products + ' products'
+        |  organized in 
+        a.btn.btn-success(href='/category')= results.categories + ' categories'

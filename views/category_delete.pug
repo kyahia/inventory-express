@@ -1,0 +1,25 @@
+extend layout
+block content
+   h1= title
+   h2= category.name
+   if categProducts.length
+      p Delete the products bellow before attempting to delete this category
+      ul
+         each product in categProducts
+            li
+               a(href=product.url)= product.name
+
+   else
+      p Are you sure you want to delete the product ?
+      form(method='POST')
+         .form-group
+            input#category-id(type='hidden' name='id' value=category._id required)
+            label(for='stock') Enter Admin password
+            input#admin-password.mx-3(name='admin-password' type='password' required class=correctPass ? "" : "is-invalid")
+            button.btn.btn-primary(type='submit') Delete
+      if errors
+         hr
+         ul
+            for error in errors
+               li= error.msg
+   

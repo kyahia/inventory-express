@@ -1,0 +1,17 @@
+extend layout
+block content
+   h1= title
+   h2= product.name + ' : ' + product.category.name
+   p Are you sure you want to delete the product ?
+   form(method='POST')
+      .form-group
+         input#product-id(type='hidden' name='id' value=product._id required)
+         label(for='stock') Enter Admin password
+         input#admin-password.mx-3(name='admin-password' type='password' required class= correctPass ? "" : "is-invalid")
+         button.btn.btn-primary(type='submit') Delete
+   
+   if errors
+      hr
+      ul
+         for error in errors
+            li= error.msg
